@@ -274,8 +274,15 @@ message ConcurrencyConfig {
     uint64 update_merkle_tree = 1;
 }
 
+message HTIFRuntimeConfig {
+    optional bool no_console_putchar = 1;
+}
+
 message MachineRuntimeConfig {
-    ConcurrencyConfig concurrency = 1;
+    optional ConcurrencyConfig concurrency = 1;
+    optional HTIFRuntimeConfig htif = 2;
+    optional bool skip_root_hash_check = 3;
+    optional bool skip_version_check = 4;
 }
 
 message MerkleTreeProof {
